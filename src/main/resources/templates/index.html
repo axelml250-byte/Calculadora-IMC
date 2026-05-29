@@ -1,1 +1,30 @@
-git 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora IMC - Java</title>
+</head>
+<body>
+    <h2>Calculadora de IMC</h2>
+    
+    <form action="/calcular" method="post">
+        <p>
+            <label>Peso (kg):</label><br>
+            <input type="number" step="0.1" name="peso" required>
+        </p>
+        <p>
+            <label>Estatura (cm):</label><br>
+            <input type="number" name="estatura" placeholder="Ej. 175" required>
+        </p>
+        <button type="submit">Calcular IMC</button>
+    </form>
+
+    <hr>
+
+    <!-- Se muestra solo si existe la variable 'resultado' -->
+    <div th:if="${resultado}">
+        <h3>Resultado:</h3>
+        <p><strong th:text="${resultado}"></strong></p>
+    </div>
+</body>
+</html>
